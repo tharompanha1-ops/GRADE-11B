@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>តារាងអវត្តមានសិស្ស</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Moul&family=Battambang:wght@400;700&family=Kantumruy+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        --bg: #eaf1fb;
+        --bg2: #f7f2ff;
+        --card: #ffffff;
+        --ink: #14304d;
+        --muted: #5d7189;
+        --line: #d3deec;
+        --a: #1b64a8;
+        --a2: #0f3f73;
+        --gold: #e0a82e;
+        --stripe: #f4f8fd;
+        --wknd: #fdecec;
+        --wkndhead: #c4504d;
+        --boy: #1b64a8;
+        --boybg: #e3effb;
+        --girl: #c2377a;
+        --girlbg: #fde6f1;
+        --shadow: 0 10px 30px rgba(20, 60, 110, 0.16);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0b121c;
+          --bg2: #141a2b;
+          --card: #142030;
+          --ink: #e7eef7;
+          --muted: #95a7bc;
+          --line: #2a3b51;
+          --a: #2f84cf;
+          --a2: #17497c;
+          --gold: #e8b94a;
+          --stripe: #192738;
+          --wknd: #2d1e25;
+          --wkndhead: #b5524f;
+          --boy: #7db8f0;
+          --boybg: #183350;
+          --girl: #f28bbd;
+          --girlbg: #3b1d2d;
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0b121c;
+        --bg2: #141a2b;
+        --card: #142030;
+        --ink: #e7eef7;
+        --muted: #95a7bc;
+        --line: #2a3b51;
+        --a: #2f84cf;
+        --a2: #17497c;
+        --gold: #e8b94a;
+        --stripe: #192738;
+        --wknd: #2d1e25;
+        --wkndhead: #b5524f;
+        --boy: #7db8f0;
+        --boybg: #183350;
+        --girl: #f28bbd;
+        --girlbg: #3b1d2d;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        color-scheme: dark;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        font-family:
+          "Kantumruy Pro", "Battambang", "Noto Sans Khmer", sans-serif;
+        padding: 22px 14px 48px;
+        background:
+          radial-gradient(900px 400px at 10% -5%, var(--bg2), transparent 70%),
+          radial-gradient(800px 380px at 100% 0, var(--bg2), transparent 70%),
+          var(--bg);
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+      .hero {
+        position: relative;
+        text-align: center;
+        padding: 26px 16px 22px;
+        border-radius: 22px;
+        color: #fff;
+        overflow: hidden;
+        background: linear-gradient(135deg, var(--a2), var(--a));
+        box-shadow: var(--shadow);
+        margin-bottom: 18px;
+      }
+      .hero:before,
+      .hero:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .hero:before {
+        width: 240px;
+        height: 240px;
+        right: -60px;
+        top: -110px;
+      }
+      .hero:after {
+        width: 170px;
+        height: 170px;
+        left: -50px;
+        bottom: -90px;
+      }
+      .hero .bar {
+        position: relative;
+        width: 64px;
+        height: 4px;
+        border-radius: 4px;
+        background: var(--gold);
+        margin: 0 auto 12px;
+      }
+      h1 {
+        position: relative;
+        font-family: "Moul", "Battambang", serif;
+        font-weight: 400;
+        font-size: clamp(19px, 3.6vw, 30px);
+        margin: 0 0 8px;
+        line-height: 1.9;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      }
+      .sub {
+        position: relative;
+        font-family: "Battambang", sans-serif;
+        font-size: 15px;
+        opacity: 0.92;
+      }
+      .chips {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .chip {
+        font-family: "Battambang", sans-serif;
+        font-size: 14px;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .chip b {
+        font-family: "Kantumruy Pro", sans-serif;
+        margin-left: 6px;
+      }
+      .staff {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-width: 860px;
+        margin: 18px auto 0;
+        text-align: center;
+      }
+      .staff .role {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 6px;
+        padding: 12px 8px;
+      }
+      .staff .role:nth-child(3) {
+        order: 1;
+      }
+      .staff .role:nth-child(2) {
+        order: 2;
+      }
+      .staff .role:nth-child(4) {
+        order: 3;
+      }
+      @media (max-width: 480px) {
+        .staff {
+          grid-template-columns: 1fr;
+        }
+        .staff .role:nth-child(n) {
+          order: 0;
+        }
+      }
+      .role {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+      }
+      .staff .role.t {
+        grid-column: 1/-1;
+        justify-content: center;
+        background: rgba(224, 168, 46, 0.22);
+        border-color: var(--gold);
+      }
+      .role .no {
+        flex: none;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: #3a2a00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-family: "Kantumruy Pro", sans-serif;
+        font-size: 14px;
+      }
+      .role .k {
+        font-family: "Battambang", sans-serif;
+        font-size: 13px;
+        opacity: 0.85;
+        line-height: 1.5;
+      }
+      .role .v {
+        font-family: "Battambang", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .role.t .v {
+        font-size: 18px;
+      }
+      /* extra polish */
+      .hero {
+        background:
+          radial-gradient(
+            500px 220px at 50% -20%,
+            rgba(255, 255, 255, 0.18),
+            transparent 70%
+          ),
+          linear-gradient(135deg, var(--a2), var(--a));
+      }
+      .hero .bar {
+        width: 110px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        border-radius: 0;
+        overflow: visible;
+      }
+      .hero .bar:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        transform: translate(-50%, -50%) rotate(45deg);
+        border-radius: 2px;
+        box-shadow: 0 0 0 4px rgba(224, 168, 46, 0.25);
+      }
+      h1 {
+        letter-spacing: 0.5px;
+      }
+      .staff .role {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.07)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+        transition: transform 0.2s;
+      }
+      .staff .role:hover {
+        transform: translateY(-3px);
+      }
+      .staff .role:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
+      .staff .role .k {
+        color: #ffe2a0;
+        letter-spacing: 0.3px;
+      }
+      .staff .role.t {
+        background: linear-gradient(
+          160deg,
+          rgba(224, 168, 46, 0.35),
+          rgba(224, 168, 46, 0.12)
+        );
+        border-color: var(--gold);
+      }
+      .staff .role.t .k:before,
+      .staff .role.t .k:after {
+        content: " \2726 ";
+        color: var(--gold);
+      }
+      .staff .role:nth-child(2) {
+        background: linear-gradient(
+          160deg,
+          rgba(224, 168, 46, 0.38),
+          rgba(255, 255, 255, 0.1)
+        );
+        border-color: var(--gold);
+        box-shadow: 0 8px 22px rgba(224, 168, 46, 0.28);
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .staff .role:nth-child(2) .k:before {
+        content: "\2605  ";
+        color: var(--gold);
+      }
+      .staff .role:nth-child(2) .v {
+        font-size: 18px;
+      }
+      .staff .role:nth-child(3) .k:before,
+      .staff .role:nth-child(4) .k:before {
+        content: "\2606  ";
+        color: var(--gold);
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .chip:before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+      .chip:nth-child(2):before {
+        background: #7dc1ff;
+      }
+      .chip:nth-child(3):before {
+        background: #ff9cc9;
+      }
+      thead tr.m th {
+        border-bottom: 2px solid #fff;
+      }
+      thead tr:nth-child(3) th {
+        border-bottom: 2px solid #fff;
+        box-shadow: inset 0 -2px 0 #fff;
+      }
+      thead th {
+        border-right: 1px solid rgba(255, 255, 255, 0.55);
+      }
+      thead tr:first-child th:nth-child(-n + 3) {
+        border-right: 1px solid #fff;
+        border-bottom: 2px solid #fff;
+        box-shadow: inset 0 -2px 0 #fff;
+      }
+      td.n {
+        background: linear-gradient(
+          90deg,
+          rgba(27, 100, 168, 0.1),
+          transparent
+        );
+      }
+      td.name {
+        border-left: 3px solid transparent;
+        transition:
+          border-color 0.15s,
+          padding 0.15s;
+      }
+      tbody tr:hover td.name {
+        border-left-color: var(--gold);
+        padding-left: 18px;
+      }
+      td.d {
+        cursor: pointer;
+        transition: box-shadow 0.1s;
+      }
+      td.d:hover {
+        box-shadow: inset 0 0 0 2px var(--a);
+      }
+      .card {
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        overflow: auto;
+        max-height: 78vh;
+        border: 1px solid var(--line);
+      }
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+        width: 100%;
+        min-width: 940px;
+        font-size: 15px;
+      }
+      th,
+      td {
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 7px 6px;
+        text-align: center;
+      }
+      thead {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      thead th {
+        background: linear-gradient(180deg, var(--a), var(--a2));
+        color: #fff;
+        font-family: "Battambang", sans-serif;
+        font-weight: 700;
+        line-height: 1.6;
+        z-index: 3;
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+      thead tr:nth-child(1) th {
+        top: 0;
+      }
+      thead tr:nth-child(2) th {
+        top: 38px;
+      }
+      thead tr:nth-child(3) th {
+        top: 76px;
+      }
+      thead tr.m th {
+        background: var(--a2);
+      }
+      thead th small {
+        font-weight: 400;
+        opacity: 0.9;
+        font-size: 12px;
+      }
+      th.wk {
+        background: var(--wkndhead) !important;
+      }
+      td.wk {
+        background: var(--wknd);
+      }
+      tbody tr:nth-child(even) td:not(.wk) {
+        background: var(--stripe);
+      }
+      tbody tr:hover td {
+        background: var(--boybg);
+      }
+      td.n {
+        width: 54px;
+        font-weight: 700;
+        color: var(--a);
+        font-family: "Battambang", sans-serif;
+      }
+      td.name {
+        text-align: left;
+        padding-left: 14px;
+        white-space: nowrap;
+        font-family: "Battambang", "Kantumruy Pro", sans-serif;
+        font-size: 16.5px;
+        font-weight: 700;
+      }
+      td.g {
+        width: 62px;
+      }
+      .pill {
+        display: inline-block;
+        min-width: 30px;
+        padding: 2px 10px;
+        border-radius: 999px;
+        font-family: "Battambang", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .pill.b {
+        background: var(--boybg);
+        color: var(--boy);
+      }
+      .pill.f {
+        background: var(--girlbg);
+        color: var(--girl);
+      }
+      td.d {
+        min-width: 46px;
+        height: 34px;
+      }
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      @media print {
+        @page {
+          size: A4 landscape;
+          margin: 10mm;
+        }
+        body {
+          background: #fff;
+          padding: 0;
+        }
+        .card {
+          box-shadow: none;
+          max-height: none;
+          overflow: visible;
+        }
+        table {
+          font-size: 11px;
+          min-width: 0;
+        }
+        td.d {
+          height: 24px;
+        }
+        .hero {
+          box-shadow: none;
+          padding: 10px;
+        }
+        thead th {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <div class="bar"></div>
+        <h1>តារាងអវត្តមានសិស្ស</h1>
+        <div class="sub" id="range"></div>
+        <div class="staff">
+          <div class="role t">
+            <div>
+              <div class="k">គ្រូបន្ទប់ថ្នាក់</div>
+              <div class="v">សេង ថា</div>
+            </div>
+          </div>
+          <div class="role">
+            <div>
+              <div class="k">ប្រធានថ្នាក់</div>
+              <div class="v">រិន ថារ៉ុមបញ្ញា</div>
+            </div>
+          </div>
+          <div class="role">
+            <div>
+              <div class="k">អនុប្រធានទី១</div>
+              <div class="v">អាន លីលី</div>
+            </div>
+          </div>
+          <div class="role">
+            <div>
+              <div class="k">អនុប្រធានទី២</div>
+              <div class="v">ឡាត់ សុវណ្ណច័ន្ទមករា</div>
+            </div>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">សិស្សសរុប<b id="tot"></b></span
+          ><span class="chip">ប្រុស<b id="bc"></b></span
+          ><span class="chip">ស្រី<b id="gc"></b></span>
+        </div>
+      </header>
+      <div class="card">
+        <table>
+          <thead>
+            <tr class="m">
+              <th rowspan="3">រ.ល</th>
+              <th rowspan="3">ឈ្មោះ</th>
+              <th rowspan="3">ភេទ</th>
+              <th colspan="12">អវត្តមាន</th>
+            </tr>
+            <tr class="m" id="months"></tr>
+            <tr id="days"></tr>
+          </thead>
+          <tbody id="body"></tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      var names = [
+        "ផន សុម៉ាវត្តី",
+        "ផាន់ ស្រីអំ",
+        "មេត ស្រីម៉ី",
+        "រ៉ន ស្រីណុច",
+        "រឿន សុវិមាន",
+        "សត់ សីលា",
+        "សាមី ស្រីនាង",
+        "សុន ស្រីម៉ី",
+        "សៀម ស្រីរ៉ា",
+        "សំ ស្រីនា",
+        "ស៊ុន ស្រីពេជ",
+        "ឡាត់ សុវណ្ណច័ន្ទមករា",
+        "ឡាយ សាន់យ៉ុងស៊ូ",
+        "អេល សុវណ្ណលីហ្សា",
+        "ផាត់ ប្រិមប្រិយ",
+        "ពេក ចំរើន",
+        "សុវណ្ណ ចិន្តា",
+        "អឿន ចរិយា",
+        "ពៅ ភ័ណ្ឌ",
+        "មាស ជ័យរីយុទ្ធ",
+        "រិន ថារ៉ុមបញ្ញា",
+        "រឿន វ៉ារី",
+        "សុខ រតនា",
+        "សុំ រ៉ាមេត",
+        "សឿន រក្សា",
+        "លី ឌូកា",
+        "វង់ លក្ខិណា",
+        "ស៊ុក លីហួរ",
+        "អាន លីលី",
+        "ស្រីវ នារីផល្លាប",
+        "ហេង គីមឆេង",
+        "ហ៊ី ហ្សូលីដា",
+        "ឡាយ ធីណា",
+        "ឡេង មរកត",
+        "អ៊ិត ឧត្តម",
+        "វុធ សោភាសិទ្ធិកា",
+        "ម៉ៅ រក្សា",
+        "ម៉ាត់ ហាសុីនីន",
+        "ផាន់ ស្រីអៃ",
+      ];
+      var order = "កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរលវឝឞសហឡអឣឤឥឦឧឨឩឪឫឬឭឮឯឰឱឲឳ";
+      function rk(c) {
+        var i = order.indexOf(c);
+        return i >= 0 ? i : 200 + c.charCodeAt(0);
+      }
+      function given(n) {
+        return n;
+      }
+      function cmp(a, b) {
+        a = given(a);
+        b = given(b);
+        var l = Math.max(a.length, b.length);
+        for (var i = 0; i < l; i++) {
+          if (i >= a.length) return -1;
+          if (i >= b.length) return 1;
+          var x = rk(a[i]),
+            y = rk(b[i]);
+          if (x !== y) return x - y;
+        }
+        return 0;
+      }
+      names.sort(cmp);
+      var wd = ["អា", "ច", "អ", "ពុ", "ព្រ", "សុ", "សៅ"];
+      function kh(n) {
+        return String(n).replace(/\d/g, function (d) {
+          return "០១២៣៤៥៦៧៨៩"[d];
+        });
+      }
+      var cols = [];
+      for (var i = 0; i < 12; i++) {
+        var date = new Date(2026, 9, 22 + i);
+        cols.push({ d: date.getDate(), w: date.getDay(), m: date.getMonth() });
+      }
+      var mh = '<th colspan="10">តុលា</th><th colspan="2">វិច្ឆិកា</th>';
+      document.getElementById("months").innerHTML = mh;
+      var dh = "";
+      cols.forEach(function (c) {
+        var wk = c.w === 0 || c.w === 6 ? ' class="wk"' : "";
+        dh +=
+          "<th" +
+          wk +
+          ">" +
+          kh(c.d) +
+          "<br><small>" +
+          wd[c.w] +
+          "</small></th>";
+      });
+      document.getElementById("days").innerHTML = dh;
+      var males = [
+        "ពៅ ភ័ណ្ឌ",
+        "មាស ជ័យរីយុទ្ធ",
+        "រិន ថារ៉ុមបញ្ញា",
+        "សុខ រតនា",
+        "សុំ រ៉ាមេត",
+        "ស៊ុក លីហួរ",
+        "ហេង គីមឆេង",
+      ];
+      var rows = "";
+      names.forEach(function (n, i) {
+        rows +=
+          '<tr><td class="n">' +
+          kh(i + 1) +
+          '</td><td class="name">' +
+          n +
+          '</td><td class="g"><span class="pill ' +
+          (males.indexOf(n) >= 0 ? 'b">ប' : 'f">ស') +
+          "</span></td>";
+        cols.forEach(function (c) {
+          rows +=
+            '<td class="d' + (c.w === 0 || c.w === 6 ? " wk" : "") + '"></td>';
+        });
+        rows += "</tr>";
+      });
+      document.getElementById("body").innerHTML = rows;
+      var mc = names.filter(function (n) {
+        return males.indexOf(n) >= 0;
+      }).length;
+      document.getElementById("tot").textContent = kh(names.length);
+      document.getElementById("bc").textContent = kh(mc);
+      document.getElementById("gc").textContent = kh(names.length - mc);
+      document.getElementById("range").textContent =
+        "ពីថ្ងៃទី ២២ តុលា ដល់ថ្ងៃទី ២ វិច្ឆិកា ២០២៦";
+    </script>
+  </body>
+</html>
